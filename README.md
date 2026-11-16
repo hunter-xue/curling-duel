@@ -10,6 +10,17 @@ npm run dev      # http://localhost:5173
 npm run build    # 产物在 dist/，可直接静态部署
 ```
 
+### 部署到 Vercel
+
+导入仓库后无需额外配置，Vercel 会自动识别 Vite：
+
+| 配置项 | 值 |
+| --- | --- |
+| Framework Preset | Vite |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | `npm install` |
+
 ## 玩法
 
 - 白方先手，双方轮流。
