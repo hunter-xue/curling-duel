@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#4a4844" />
+    <title>冰壶对决 · Curling Duel</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div id="ui">
+      <div class="vignette"></div>
+
+      <header class="scorecard">
+        <div class="score-row is-active" id="row-white">
+          <span class="chip chip-white"></span>
+          <span class="name">Player White</span>
+          <span class="pts" id="score-white">0</span>
+        </div>
+        <div class="score-row" id="row-black">
+          <span class="chip chip-black"></span>
+          <span class="name">Player Black</span>
+          <span class="pts" id="score-black">0</span>
+        </div>
+        <p class="score-note">击落对方石子得分</p>
+      </header>
+
+      <aside class="panel" id="panel">
+        <div class="panel-head">
+          <div>
+            <h1>冰壶对决</h1>
+            <p class="eyebrow">Curling Duel · 2P</p>
+          </div>
+          <button class="icon-btn" id="btn-restart" title="重新开始" aria-label="重新开始">
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+              <path
+                d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <section class="panel-block">
+          <h2>玩法</h2>
+          <ol class="rules">
+            <li>点击你方石子，<b>向后拖拽</b>，松手投出。</li>
+            <li>拖得越远、甩得越快，<b>力度越大</b>。</li>
+            <li>把对方石子全部撞下台面即获胜。</li>
+            <li>小心反作用力 —— 斜撞会把自己也带下去。</li>
+          </ol>
+        </section>
+
+        <section class="panel-block">
+          <h2>操作</h2>
+          <div class="keys">
+            <div><kbd>拖拽</kbd><span>瞄准 / 蓄力</span></div>
+            <div><kbd>松开</kbd><span>投掷石子</span></div>
+            <div><kbd>Esc</kbd><span>取消本次瞄准</span></div>
+          </div>
+        </section>
+
+        <div class="panel-foot">
+          <span class="pulse"></span>
+          冰面摩擦 · 弹性碰撞 · 真实反作用力
+        </div>
+      </aside>
+
+      <button class="panel-toggle" id="btn-panel" aria-label="玩法说明">?</button>
+
+      <div class="turnbar" id="turnbar">
+        <span class="turn-dot" id="turn-dot"></span>
+        <span id="turn-text">白方回合 · 拖拽你的石子</span>
+      </div>
+
+      <div class="power" id="power">
+        <div class="power-track"><div class="power-fill" id="power-fill"></div></div>
+        <div class="power-meta"><span>力度</span><b id="power-val">0%</b></div>
+      </div>
+
+      <div class="overlay" id="overlay" hidden>
+        <div class="overlay-card">
+          <p class="eyebrow">GAME OVER</p>
+          <h2 id="over-title">白方获胜</h2>
+          <p class="over-sub" id="over-sub">5 : 0</p>
+          <button class="btn-primary" id="btn-again">再来一局</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
